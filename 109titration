@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-
 import sys
+from src.error_handling.check_argv import check_argv
+
 
 def main(argv: list[str]) -> int:
-    return 84
+    return check_argv(argv)
+
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
