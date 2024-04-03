@@ -9,8 +9,18 @@ def is_number(s):
         return False
 
 
+def check_duplicates(pairs):
+    seen = set()
+    for pair in pairs:
+        if pair in seen:
+            return True
+        seen.add(pair)
+    return False
+
+
 def check_file(argv: list[str]) -> int:
     count_pair = 0
+    pairs = []
     with open(argv[1], "r") as file:
         reader = csv.reader(file)
         for row in reader:
@@ -30,6 +40,9 @@ def check_file(argv: list[str]) -> int:
             if not (0 <= float(after_semicolon) <= 15):
                 exit(84)
             count_pair += 1
+            pairs.append((float(before_semicolon), float(after_semicolon)))
     if count_pair < 5:
+        exit(84)
+    if check_duplicates(pairs):
         exit(84)
     return 0
