@@ -24,4 +24,6 @@ def check_file(argv: list[str]) -> int:
             after_semicolon = line[semicolon_index + 1:]
             if not is_number(before_semicolon) or not is_number(after_semicolon):
                 exit(84)
+            if not (0 <= float(after_semicolon) <= 15):
+                return 84
     return 0
