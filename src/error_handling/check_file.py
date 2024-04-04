@@ -1,4 +1,5 @@
 import csv
+import os
 
 
 def is_number(s):
@@ -18,9 +19,24 @@ def check_duplicates(pairs):
     return False
 
 
+def check_file_existence(file_path):
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, 'r'):
+                pass
+        except IOError:
+            return False
+        else:
+            return True
+    else:
+        return False
+
+
 def check_file(argv: list[str]) -> int:
     count_pair = 0
     pairs = []
+    if not check_file_existence(argv[1]):
+        exit(84)
     with open(argv[1], "r") as file:
         reader = csv.reader(file)
         for row in reader:
