@@ -23,7 +23,7 @@ def frange(start, end=None, inc=None):
     return L
 
 
-def calc_estimate(coords: list[tuple[float, float]], equi: float) -> int:
+def calc_estimate(coords: list[tuple[float, float]], equi: float) -> list[tuple[float, float]]:
     index = 0
 
     for i, v in enumerate(coords):
@@ -34,4 +34,4 @@ def calc_estimate(coords: list[tuple[float, float]], equi: float) -> int:
     b = coords[index + 1][1] - a * coords[index + 1][0]
     estimates = [a * i + b for i in frange(coords[index - 1][0], coords[index + 1][0], 0.1)]
     print_second_derivatives_estime(estimates)
-    return 0
+    return estimates
