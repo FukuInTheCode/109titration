@@ -30,8 +30,10 @@ def calc_estimate(coords: list[tuple[float, float]], equi: float) -> list[tuple[
         if v[1] == equi:
             index = i
             break
-    a = (coords[index + 1][1] - coords[index - 1][1]) / (coords[index + 1][0] - coords[index - 1][0])
-    b = coords[index + 1][1] - a * coords[index + 1][0]
-    estimates = [a * i + b for i in frange(coords[index - 1][0], coords[index + 1][0], 0.1)]
+    estimates = []
+    x1, y1 = coords[index - 1]
+    x2, y2 = coords[index + 1]
+    for i in frange(coords[index - 1][0], coords[index + 1][0], 0.1):
+        estimates.append((i, y1 + (i - x1) * (y2 - y1) / (x2 - x1)))
     print_second_derivatives_estime(estimates)
     return estimates
