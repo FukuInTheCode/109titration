@@ -7,7 +7,7 @@ def calc_derivative(coords: list[tuple[float, float]]) -> list[tuple[float, floa
                 coords[i][0],
                 (
                     (coords[i - 1][1] - coords[i][1]) / (coords[i - 1][0] - coords[i][0])
-                    + (coords[i - 1][1] - coords[i][1]) / (coords[i - 1][0] - coords[i][0])
+                    + (coords[i + 1][1] - coords[i][1]) / (coords[i + 1][0] - coords[i][0])
                 )
                 / 2,
             )
