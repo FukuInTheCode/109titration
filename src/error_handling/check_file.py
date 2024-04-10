@@ -1,5 +1,6 @@
 import csv
 import os
+from src.derivatives.calc_derivatives import calc_derivatives
 
 
 def is_number(s):
@@ -22,7 +23,7 @@ def check_duplicates(pairs):
 def check_file_existence(file_path):
     if os.path.exists(file_path):
         try:
-            with open(file_path, 'r'):
+            with open(file_path, "r"):
                 pass
         except IOError:
             return False
@@ -48,7 +49,7 @@ def check_file(argv: list[str]) -> int:
             if semicolon_index == 0 or semicolon_index == len(line) - 1:
                 exit(84)
             before_semicolon = line[:semicolon_index]
-            after_semicolon = line[semicolon_index + 1:]
+            after_semicolon = line[semicolon_index + 1 :]
             if not is_number(before_semicolon) or not is_number(after_semicolon):
                 exit(84)
             if float(before_semicolon) < 0:
