@@ -61,4 +61,5 @@ def check_file(argv: list[str]) -> int:
         exit(84)
     if check_duplicates(pairs):
         exit(84)
+    calc_derivatives(pairs)
     return 0
