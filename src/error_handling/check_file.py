@@ -49,7 +49,7 @@ def check_file(argv: list[str]) -> int:
             if semicolon_index == 0 or semicolon_index == len(line) - 1:
                 exit(84)
             before_semicolon = line[:semicolon_index]
-            after_semicolon = line[semicolon_index + 1 :]
+            after_semicolon = line[semicolon_index + 1:]
             if not is_number(before_semicolon) or not is_number(after_semicolon):
                 exit(84)
             if float(before_semicolon) < 0:
@@ -58,7 +58,7 @@ def check_file(argv: list[str]) -> int:
                 exit(84)
             count_pair += 1
             pairs.append((float(before_semicolon), float(after_semicolon)))
-    if count_pair < 5:
+    if count_pair < 7:
         exit(84)
     if check_duplicates(pairs):
         exit(84)

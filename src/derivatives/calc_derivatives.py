@@ -9,11 +9,12 @@ def calc_derivatives(coords: list[tuple[float, float]]) -> int:
     first = calc_first_derivative(coords)
     equi = find_equivalence(first)
     print_equivalence(equi[0])
+    print()
     second = calc_second_derivative(first)
-    estimates = calc_estimate(second, equi[1])
-    min = estimates[0]
+    estimates = calc_estimate(second, equi[0])
+    mini = estimates[0]
     for x, y in estimates[1:]:
-        if abs(min[1]) > abs(y):
-            min = (x, y)
-    print_equivalence(min[0])
+        if abs(mini[1]) > abs(y):
+            mini = (x, y)
+    print_equivalence(mini[0])
     return 0

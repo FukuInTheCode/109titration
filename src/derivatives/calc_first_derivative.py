@@ -5,4 +5,5 @@ from src.print.print_derivatives import print_derivatives
 def calc_first_derivative(coords: list[tuple[float, float]]) -> list[tuple[float, float]]:
     first_der = calc_derivative(coords)
     print_derivatives(first_der)
+    print()
     return first_der

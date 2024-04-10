@@ -1,4 +1,4 @@
-from src.print.print_second_derivatives_estime import print_second_derivatives_estime
+from src.print.print_second_derivative_estime import print_second_derivatives_estime
 
 
 def frange(start, end=None, inc=None):
@@ -27,13 +27,18 @@ def calc_estimate(coords: list[tuple[float, float]], equi: float) -> list[tuple[
     index = 0
 
     for i, v in enumerate(coords):
-        if v[1] == equi:
+        if v[0] == equi:
             index = i
             break
     estimates = []
     x1, y1 = coords[index - 1]
+    x2, y2 = coords[index]
+    for i in frange(x1, x2 + 0.1, 0.1):
+        estimates.append((i, y1 + (i - x1) * (y2 - y1) / (x2 - x1)))
+    x1, y1 = coords[index]
     x2, y2 = coords[index + 1]
-    for i in frange(coords[index - 1][0], coords[index + 1][0], 0.1):
+    for i in frange(x1, x2 + 0.1, 0.1):
         estimates.append((i, y1 + (i - x1) * (y2 - y1) / (x2 - x1)))
     print_second_derivatives_estime(estimates)
+    print()
     return estimates
