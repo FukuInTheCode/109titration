@@ -1,4 +1,4 @@
-def calc_derivative(coords: list[list[float]]) -> list[tuple(float, float)]:
+def calc_derivative(coords: list[tuple[float, float]]) -> list[tuple[float, float]]:
     der = []
 
     for i in range(1, len(coords), 1):
