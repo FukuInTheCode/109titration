@@ -1,3 +1,6 @@
+from src.print.print_second_derivatives_estime import print_second_derivatives_estime
+
+
 def frange(start, end=None, inc=None):
     "A range function, that does accept float increments..."
 
