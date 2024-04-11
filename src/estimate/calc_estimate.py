@@ -37,7 +37,7 @@ def calc_estimate(coords: list[tuple[float, float]], equi: float) -> list[tuple[
         estimates.append((i, y1 + (i - x1) * (y2 - y1) / (x2 - x1)))
     x1, y1 = coords[index]
     x2, y2 = coords[index + 1]
-    for i in frange(x1, x2 + 0.1, 0.1):
+    for i in frange(x1 + 0.1, x2 + 0.1, 0.1):
         estimates.append((i, y1 + (i - x1) * (y2 - y1) / (x2 - x1)))
     print_second_derivatives_estime(estimates)
     print()
